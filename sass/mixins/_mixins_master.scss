@@ -1,0 +1,21 @@
+@mixin link-states() {
+  &:visited {@content}
+  &:hover {@content}
+  &:active {@content}
+  &:focus {@content}
+}
+@mixin nav-ul {
+  list-style-type: none;
+  padding-left: 0;
+  li {
+    a {
+      color: inherit;
+      @include link-states() {
+        color: inherit;
+        text-decoration: none;
+        font-family: inherit;
+      }
+    }
+  }
+}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJfbWl4aW5zX21hc3Rlci5zY3NzIn0= */

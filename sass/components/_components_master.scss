@@ -1,0 +1,1460 @@
+/*
+|---------------------------------------------------------------------
+| Header (.c-header)
+|---------------------------------------------------------------------
+| Solid header with logo and mobile menu
+|
+ */
+.c-header {
+  background-color: $sh-blue;
+  display: flex;
+  align-items: center;
+  height: 60px;
+}
+.c-header__logo {
+  display: block;
+  text-indent: -9999px;
+  background: url('#{$svg_path}/wsht_logo_new.svg') no-repeat center center;
+  background-size: contain;
+  width: 177px;
+  height: 50px;
+  margin: 0 auto;
+  @media (min-width: $md) {
+    margin: 0 20px 0 0;
+    float: right;
+    background: url('#{$svg_path}/wsht_logo_new.svg') no-repeat right center;
+    background-size: contain;
+  }
+}
+
+.page--no-hero {
+  margin-top: 60px;
+  @media (min-width: $xs) {
+    margin-top: 90px;
+  }
+  @media (min-width: $md) {
+    margin-top: 150px;
+  }
+}
+
+/*
+|---------------------------------------------------------------------
+| Bootstrap / WordPress Menu
+|---------------------------------------------------------------------
+| Bypass BEM syntax here as not in control of HTML
+|
+ */
+
+/* Wordpress menu */
+#menu-primary-navigation {
+  list-style-type: none;
+  padding: 8px 15px 8px;
+  margin-bottom: 0;
+  @media (min-width: $xs) {
+    float: right;
+    padding-right: 0;
+  }
+  @media (min-width: $md) {
+    padding-right: 15px;
+  }
+}
+
+.c-navigation {
+  background-color: $sh-blue;
+  position: absolute;
+  z-index: 100;
+  width: 100%;
+  @media (min-width: $xs) {
+    background-color: $white;
+    box-shadow: 0 0 4px 0;
+    z-index: 5;
+  }
+  .sub-menu {
+    display: none;
+    padding-left: 10px;
+    @media (min-width: $xs) {
+      background-color: $white;
+      position: absolute;
+      left: -2px;
+      margin-top: 2px;
+      padding: 10px 0 0 0;
+      min-width: 350px;
+      border: 2px solid $sh-purple;
+      border-radius: 0 5px 5px 5px;
+    }
+  }
+  li {
+    position: relative;
+    @media (min-width: $xs) {
+      display: inline-block;
+      padding: 2px;
+      border: 2px solid transparent;
+    }
+
+    // has child items (sub-menu)
+    &.menu-item-has-children {
+      &:last-child {
+        @media (min-width: $xs) {
+          ul.sub-menu {
+            right: -2px;
+            position: absolute;
+            min-width: 200px;
+          }
+        }
+      }
+      a:before {
+        content: "\f078";
+        font-family: FontAwesome;
+        display: inline;
+        padding-left: 5px;
+        float: right;
+        font-size: 12px;
+        line-height: 22px;
+        /* IE10-11 */
+        @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+          display: none;
+          @media (min-width: $md) {
+            display: inline;
+            position: absolute;
+            right: 0;
+          }
+        }
+        @media (min-width: $xs) {
+          line-height: 16px;
+        }
+        @media (min-width: $md) {
+          line-height: 19px;
+        }
+
+      }
+      &:hover {
+
+        ul.sub-menu {
+          display: block;
+        }
+        @media (min-width: $xs) {
+          border-color: $sh-purple;
+          border-bottom: 2px solid white;
+          border-radius: 5px 5px 0 0;
+          &:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            display: block;
+            width: 100%;
+            height: 2px;
+            background-color: $white;
+            z-index: 99;
+          }
+          a {
+            color: $white;
+            background-color: $sh-purple;
+
+          }
+          .sub-menu li {
+            background: none;
+            &:hover {
+              background-color: $sh-purple;
+              border-color: $sh-purple;
+              border-radius: 0;
+            }
+            a {
+              background: none;
+              color: $sh-black;
+              &:after {
+                display: none;
+              }
+            }
+            &:hover {
+              a {
+                color: $white;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // doesn't have children
+    &:hover {
+      @media (min-width: $xs) {
+        border-color: $sh-purple;
+        border-radius: 5px;
+        a {
+          background-color: $sh-purple;
+          color: $white;
+        }
+      }
+    }
+    a {
+      display: block;
+      font-family: $frutiger;
+      position: relative;
+      width: 100%;
+      font-size: 16px;
+      color: $white;
+      padding: 10px 0;
+      @include link-states() {
+        text-decoration: none;
+      }
+      @media (min-width: $xs) {
+        padding: 5px 10px;
+        border-radius: 5px;
+        color: $sh-black;
+        font-size: 14px;
+      }
+      @media (min-width: $md) {
+        font-size: 16px;
+        padding: 5px 20px;
+      }
+    }
+  }
+
+  .sub-menu li {
+    display: block;
+    transition: 0.5s;
+    opacity: 0.7;
+    @media (min-width: $xs) {
+      opacity: 1;
+    }
+    a:before {
+      display: none;
+    }
+  }
+  .container {
+    @media (min-width: $xs) and (max-width: $md) {
+      width: 100%;
+    }
+  }
+}
+.c-navigation__logo {
+  height: 60px;
+  width: 60px;
+  position: absolute;
+  left: 0;
+  top: 60px;
+  z-index: 10;
+  @media (min-width: $mobile) {
+    height: 80px;
+    width: 80px;
+  }
+  @media (min-width: $xs) {
+    left: auto;
+  }
+  @media (min-width: $md) {
+    width: 116px;
+    height: 116px;
+  }
+}
+.c-navigation__search {
+  text-indent: -9999px;
+  display: none;
+  @media (min-width: $xs) {
+    display: inline-block;
+    position: relative;
+    top: 16px;
+    background: url('#{$svg_path}/search-icon.svg') no-repeat center center;
+    padding: 3px 0;
+    cursor: pointer;
+    float: right;
+    width: 30px;
+    height: 20px;
+  }
+}
+.c-mobile-search {
+  background-color: $white;
+  height: 40px;
+  box-shadow: 0 0 4px 0;
+  @media (min-width: $xs) {
+    display: none;
+  }
+}
+.c-mobile-search__icon {
+  float: right;
+  text-indent: -9999px;
+  cursor: pointer;
+  background: url('#{$svg_path}/search-icon.svg') no-repeat right center;
+  height: 20px;
+  width: 30px;
+  margin-right: 11px;
+  margin-top: 10px;
+  @media (min-width: $xs) {
+    display: none;
+  }
+}
+
+/*
+|---------------------------------------------------------------------
+| Footer WordPress Menu
+|---------------------------------------------------------------------
+| Bypass BEM syntax here as not in control of HTML
+|
+ */
+.c-footer__navigation {
+
+}
+
+/*
+|---------------------------------------------------------------------
+| Icon Bars (.icon-bar)
+|---------------------------------------------------------------------
+| Burger menu lines
+|
+ */
+.icon-bar {
+  background-color: $white;
+  transition: all 0.2s;
+}
+.icon-bar--top {
+  transform: rotate(45deg);
+  transform-origin: 10% 10%;
+}
+.icon-bar--middle {
+  opacity: 0;
+}
+.icon-bar--bottom {
+  transform: rotate(-45deg);
+  transform-origin: 10% 90%;
+}
+.navbar-toggle.collapsed {
+  .icon-bar--top {
+    transform: rotate(0);
+  }
+  .icon-bar--middle {
+    opacity: 1;
+  }
+  .icon-bar--bottom {
+    transform: rotate(0);
+  }
+}
+
+/*
+|---------------------------------------------------------------------
+| Hero (.hero)
+|---------------------------------------------------------------------
+| Main header image, with buttons
+|
+ */
+.hero {
+  height: 200px;
+  position: relative;
+  z-index: 0;
+  background-repeat: no-repeat;
+  max-width: 2000px;
+  background-size: auto 200px;
+  background-position: center center;
+  margin-right: auto;
+  margin-left: auto;
+
+  @media (min-width: $mobile) {
+    height: 250px;
+    background-size: auto 100%;
+  }
+  @media (min-width: $xs) {
+    margin-top: 50px;
+    height: 400px;
+  }
+}
+.hero--page {
+  background-size: 100% auto;
+  height: 135px;
+  @media (min-width: $mobile) {
+    height: 250px;
+  }
+  @media (min-width: $xs) {
+    background-size: 100% auto;
+    height: 300px;
+  }
+}
+.hero__blur {
+  padding: 20px 0;
+  height: auto;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.6);
+}
+.hero__title {
+  color: $sh-purple;
+  font-size: 18px;
+  margin: 0;
+  @media (min-width: $mobile) {
+    font-size: 20px;
+  }
+  @media (min-width: $xs) {
+    font-size: 22px;
+    margin: 15px 0 0;
+  }
+}
+.hero__link {
+  background-color: $sh-blue;
+  padding: 15px 8px;
+  margin: 0 0 10px 0;
+  border-radius: 3px;
+  position: relative;
+  box-shadow: 0 2px 4px 0;
+  @media (min-width: $xs) {
+    margin: 0;
+  }
+}
+.hero__link--last {
+  margin-bottom: 0;
+  @media (min-width: $xs) {
+    margin: 0;
+  }
+}
+.hero__link a {
+  color: $white;
+  width: 100%;
+  display: block;
+  font-size: 16px;
+  span {
+    position: absolute;
+    right: 10px;
+  }
+  @include link-states() {
+    text-decoration: none;
+  }
+}
+
+/*
+|---------------------------------------------------------------------
+| Strip (.strip)
+|---------------------------------------------------------------------
+| Full width content areas for some amounts of content
+|
+ */
+.strip {
+  height: auto;
+  padding: 15px 0;
+  display: flex;
+}
+.strip--purple {
+  background-color: $sh-purple;
+}
+.strip__text {
+  font-family: $frutiger;
+  color: $white;
+  font-size: 14px;
+  text-align: center;
+  @media (min-width: $xs) {
+    font-size: 18px;
+    margin: 8px 0 0;
+  }
+}
+/*
+|---------------------------------------------------------------------
+| Clinic Search (#clinic-search)
+|---------------------------------------------------------------------
+| Form containing Boostrap select dropwdown
+| Using ID here to override default CSS from bootstrap select
+|
+ */
+#clinic-search {
+  margin-bottom: 30px;
+  @media (min-width: $xs) {
+    margin-bottom: 0;
+  }
+  button {
+    background: none;
+    border: none;
+    color: $white;
+    font-family: $frutiger;
+    font-size: 14px;
+    border-bottom: 2px solid $white;
+    opacity: 0.6;
+    border-radius: 0;
+    @media (min-width: $xs) {
+      font-size: 18px;
+    }
+  }
+  .bootstrap-select {
+    width: 100%;
+    .dropdown-toggle {
+      @include link-states() {
+        outline: none !important;
+      }
+    }
+  }
+  .dropdown-menu.open {
+    background: $white;
+    .bs-searchbox {
+      padding: 10px 20px;
+      input {
+        border: none;
+        padding-left: 0;
+        border-bottom: 1px solid $sh-blue;
+        box-shadow: none;
+        border-radius: 0;
+      }
+    }
+    ul {
+      background: $white;
+      li {
+        padding: 4px 0;
+        &.active {
+          a {
+            background: none;
+            .text {
+              color: $sh-purple;
+            }
+          }
+        }
+        a {
+          &:hover {
+            background: none;
+            .text {
+              color: $sh-purple;
+            }
+          }
+          &:focus, &:visited, &:active {
+            outline: none;
+          }
+          .text {
+            color: $sh-text;
+            font-size: 16px;
+            font-family: $frutiger;
+          }
+        }
+      }
+    }
+  }
+}
+
+/*
+|---------------------------------------------------------------------
+| Block (.block)
+|---------------------------------------------------------------------
+| Sections of content
+|
+ */
+.block {
+  padding: 20px 0;
+  @media (min-width: $mobile) {
+    padding: 30px 0;
+  }
+  @media (min-width: $xs) {
+    padding: 40px 0;
+  }
+}
+.block--grey {
+  background-color: $sh-lightgrey;
+}
+.block__heading {
+  color: $sh-purple;
+}
+.block__heading--black {
+  color: $sh-black;
+}
+.block__subheading {
+
+}
+.block__content {
+  padding: 15px 0;
+  overflow: hidden;
+  @media (min-width: $xs) {
+    padding: 20px 0;
+  }
+}
+.block__content--flex-sm {
+  @media (min-width: $xs) {
+    display: flex;
+  }
+}
+.block__content__subheading {
+  min-height: 0;
+  @media (min-width: $xs) {
+    min-height: 45px;
+  }
+}
+
+/*
+|---------------------------------------------------------------------
+| Button (.c-button)
+|---------------------------------------------------------------------
+| It's a button
+|
+ */
+.c-button {
+  @extend .hero__link;
+  box-shadow: none;
+  color: $white;
+  display: block;
+  font-size: 14px;
+  padding: 12px 8px;
+  font-family: $frutiger;
+  background-image: url('#{$img_path}/img-icon-chevron-right-white.png');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  @include link-states() {
+    color: $white;
+    text-decoration: none;
+  }
+}
+.c-button--bottom-right {
+  margin-top: 15px;
+  @media (min-width: $xs) {
+    position: absolute;
+    bottom: 10px;
+    right: 0;
+    width: 250px;
+    max-width: 100%;
+  }
+}
+.c-button--double {
+  min-height: 80px;
+  background-position: right 10px top 15px;
+  margin-bottom: 0;
+}
+.c-button--contact-mob {
+  margin: 15px auto;
+}
+/*
+|---------------------------------------------------------------------
+| Marquee
+|---------------------------------------------------------------------
+| Scrolling text marquee,
+| see https://github.com/aamirafridi/jQuery.Marquee
+|
+ */
+.marquee {
+  overflow: hidden;
+  margin-right: 40px;
+  height: 50px;
+  @media (min-width: $xs) {
+    &:before {
+      content: '';
+      width: 80px;
+      height: 50px;
+      position: absolute;
+      left: 0;
+      background: -webkit-linear-gradient(left, rgba(243, 243, 243, 1), rgba(243, 243, 243, 0));
+      display: inline-block;
+    }
+    &:after {
+      content: '';
+      width: 80px;
+      height: 50px;
+      position: absolute;
+      right: 40px;
+      background: -webkit-linear-gradient(left, rgba(243, 243, 243, 0), rgba(243, 243, 243, 1));
+      display: inline-block;
+    }
+  }
+}
+.marquee__text {
+  font-size: 18px;
+  font-family: $frutiger;
+  margin: 8px 0 0 0;
+  &:after {
+    content: '';
+    background:url('#{$img_path}/img-icon-chat-colour.png') no-repeat center center;
+    display: inline-block;
+    width: 39px;
+    height: 39px;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+}
+.marquee__img {
+  padding: 0 15px;
+}
+
+/*
+|---------------------------------------------------------------------
+| Cards (.c-card)
+|---------------------------------------------------------------------
+| Square, background image and bottom block with title
+|
+ */
+.c-card {
+  margin: 0 auto 20px;
+  @media (min-width: $md) {
+    margin-bottom: 0;
+  }
+  @media (min-width: $xs) and (max-width: $md) {
+    width: 500px;
+    float: none;
+  }
+}
+.c-card__img {
+  height: 270px;
+  width: 100%;
+  border-radius: 6px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  @media (min-width: $md) {
+    background-size: auto 100%;
+  }
+}
+.c-card__textblock {
+  position: absolute;
+  left: 1%;
+  bottom: 5px;
+  padding: inherit;
+  width: 98%;
+}
+.c-card__title {
+  margin: 0;
+}
+
+/*
+|---------------------------------------------------------------------
+| Footer (.c-footer)
+|---------------------------------------------------------------------
+|
+ */
+.c-footer {
+  background: $sh-purple;
+  padding: 20px 0;
+}
+.c-footer__logo {
+  float: right;
+  margin-bottom: 30px;
+  width: 177px;
+  height: 50px;
+}
+.c-footer__navigation {
+  ul {
+    list-style-type: none;
+    padding-left: 0;
+    &.secondary {
+      margin-top: 15px;
+      @media (min-width: $xs) {
+        margin-top: 0;
+      }
+    }
+    li {
+      margin-bottom: 6px;
+      a {
+        color: $white;
+        font-family: $frutiger;
+        @include link-states() {
+          color: $white;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+.footer-copyright {
+  padding: 25px 0;
+}
+.footer-copyright__text {
+  font-family: $frutiger;
+  margin: 0;
+  font-size: 12px;
+}
+.footer-copyright__link {
+  color: inherit;
+  text-decoration: underline;
+  @include link-states() {
+    color: inherit;
+  }
+}
+
+/*
+|---------------------------------------------------------------------
+| Siblings (.siblings, .sibling)
+|---------------------------------------------------------------------
+| List and list items for display in 'pages in this section'
+|
+ */
+.siblings {
+  @include nav-ul;
+}
+.siblings__more {
+  color: $sh-purple;
+  font-weight: bold;
+  display: block;
+  margin: 5px 0 15px;
+  @include link-states() {
+    color: $sh-purple;
+    text-decoration: none;
+  }
+}
+.sibling {
+  margin-bottom: 5px;
+  font-family: $frutiger;
+  color: $sh-darkgrey;
+  &:hover {
+    color: $sh-purple;
+  }
+}
+
+/*
+|---------------------------------------------------------------------
+| Breadbcrumbs (c-breadcrumbs)
+|---------------------------------------------------------------------
+| Breadcrumb plugin, see https://mtekk.us/code/breadcrumb-navxt/
+|
+ */
+.c-breadcrumbs {
+  padding: 8px 0;
+  @media (min-width: $mobile) {
+    padding: 15px 0;
+  }
+}
+.c-breadcrumbs a {
+  color: $sh-purple;
+  font-family: $frutiger;
+  @include link-states() {
+    text-decoration: none;
+  }
+}
+
+/*
+|---------------------------------------------------------------------
+| Print
+|---------------------------------------------------------------------
+| Print icon and link, see https://wordpress.org/plugins/print-o-matic/
+|
+ */
+.print {
+  background: url('#{$img_path}/img-icon-print-dark.png') no-repeat left 12px center;
+  width: 65px;
+  text-align: right;
+  float: right;
+  padding: 8px 0;
+  @media (min-width: $mobile) {
+    padding: 15px 0;
+  }
+}
+
+/*
+|---------------------------------------------------------------------
+| C-Content
+|---------------------------------------------------------------------
+| Main content area, dynamic content
+|
+ */
+.c-content {
+  #spacer + h2, #spacer + h3, #spacer + h4,
+  #spacer + p, #spacer + a, #spacer + span {
+    @media (min-width: $xs) {
+      margin-top: 15px;
+    }
+  }
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  @media (min-width: $xs) {
+    font-size: 15px;
+  }
+  h2, h3, h4 {
+    color: $sh-purple;
+    font-weight: bold;
+  }
+  h2 {
+    @media (min-width: $xs) {
+      font-size: 24px;
+    }
+  }
+  h3 {
+    @media (min-width: $xs) {
+      font-size: 22px;
+    }
+  }
+  h4 {
+    @media (min-width: $xs) {
+      font-size: 18px;
+    }
+  }
+  ul {
+    list-style-type: none;
+    padding: 10px 0;
+    margin: 0;
+    @media (min-width: $xs) {
+      padding: 15px 0;
+    }
+    li {
+      padding-left: 20px;
+      margin-bottom: 8px;
+      background: url('#{$img_path}/bullet.png') no-repeat left top 5px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+  ol {
+    list-style-type: none;
+    counter-reset: item;
+    padding: 10px 0;
+    margin: 0;
+    li {
+      margin-bottom: 8px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+      &:before {
+        padding-right: 5px;
+        content: counter(item) ". ";
+        counter-increment: item;
+        color: $sh-purple;
+        font-weight: bold;
+      }
+      @media (min-width: $mobile) {
+        font-size: 14px;
+      }
+    }
+  }
+  blockquote {
+    background: $sh-lightgrey url('#{$img_path}/img-icon-info-colour.png') no-repeat left 15px center;
+    padding: 20px 20px 20px 60px;
+    border-radius: 5px;
+    margin: 15px 0;
+    font-family: $frutiger;
+    color: $sh-purple;
+    @media (min-width: $xs) {
+      font-size: 17px;
+      margin: 25px 0;
+    }
+    /* try to cover all bases here */
+    p, p a, p span, p a span {
+      color: inherit;
+      font-size: inherit;
+      margin: 0;
+    }
+  }
+  a {
+    color: $sh-purple;
+    text-decoration: underline;
+    @include link-states() {
+      color: $sh-purple;
+      text-decoration: underline;
+    }
+  }
+}
+
+/*
+|---------------------------------------------------------------------
+| Attachments (.c-attachments, .c-attachment)
+|---------------------------------------------------------------------
+| List and list items for attachments
+|
+ */
+.c-attachments {
+  @include nav-ul;
+  padding: 15px 0;
+  @media (min-width: $xs) {
+    padding: 25px 0;
+  }
+}
+.c-attachment {
+  min-height: 20px;
+  margin-bottom: 10px;
+  @media (min-width: $xs) {
+    margin-bottom: 15px;
+  }
+}
+.c-attachment__link {
+  background: url('#{$img_path}/img-icon-attach-colour.png') no-repeat left center;
+  display: block;
+  padding-left: 20px;
+}
+
+/*
+|---------------------------------------------------------------------
+| Collapse Trigger (.collapse-trigger)
+|---------------------------------------------------------------------
+| Solid block with title/text and link that's used with bootstrap collapse
+| to reveal more content
+|
+ */
+.collapse-trigger {
+  background-color: $sh-purple;
+  overflow: hidden;
+  padding: 10px 15px;
+  border-radius: 5px;
+  display: block;
+}
+.collapse-trigger--faqs {
+  margin-top: 20px;
+  &:nth-of-type(1) {
+    margin-top: 0;
+  }
+}
+.collapse-tigger__text {
+  color: $white;
+  display: inline-block;
+  margin: 0;
+  font-size: 14px;
+  @media (min-width: $xs) {
+    font-size: 16px;
+    margin-top: 5px;
+  }
+}
+.collapse-trigger__wrap {
+  background: $sh-lightgrey;
+  border-radius: 5px;
+}
+.collapse-trigger__wrap.in {
+  height: auto !important;
+}
+.collapse-trigger__content {
+  padding: 10px 15px;
+}
+.faqs {
+  margin: 20px 0;
+  @media (min-width: $xs) {
+    margin: 30px 0;
+  }
+}
+
+/*
+|---------------------------------------------------------------------
+| Feedback (.feedback)
+|---------------------------------------------------------------------
+| Contains star shapes for rating of info on each page
+| Stars change class on click
+|
+ */
+.feedback {
+  display: block;
+  margin-top: 8px;
+  @media (min-width: $mobile) {
+    float: right;
+    display: inline-block;
+    margin-top: 0;
+    height: 24px;
+  }
+}
+.feedback__star {
+  display: inline-block;
+  background: url('#{$img_path}/img-icon-star-outline-light.png') no-repeat;
+  width: 30px;
+  height: 24px;
+  &:hover {
+    cursor: pointer;
+    background: url('#{$img_path}/img-icon-star-solid-light.png') no-repeat;
+  }
+  @media (min-width: $mobile) {
+    width: 24px;
+    height: 24px;
+  }
+}
+.feedback__star--active {
+  background: url('#{$img_path}/img-icon-star-solid-light.png') no-repeat;
+}
+.feedback__star--selected {
+  background: url('#{$img_path}/img-icon-star-solid-light.png') no-repeat;
+}
+/* Container for contact form 7 feedback form */
+#feedbackForm {
+  overflow: hidden;
+  background-color: $white;
+  padding: 15px 10px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  @media (min-width: $xs) {
+    padding: 15px 25px;
+  }
+  form {
+    label {
+      font-family: $frutiger;
+      color: $sh-text;
+      font-weight: normal;
+      font-size: 12px;
+      display: block;
+      margin-bottom: 10px;
+    }
+    input, select, textarea, .wpcf7-recaptcha {
+      margin-bottom: 15px;
+      @media (min-width: $xs) {
+        margin-bottom: 20px;
+      }
+    }
+    select {
+      display: block;
+      height: 40px;
+      padding-left: 15px;
+      -webkit-appearance: none;
+      background: none;
+      max-width: 100%;
+      width: 100%;
+      border: 1px solid rgb(151,151,151);
+      @media (min-width: $md) {
+        width: 250px;
+      }
+    }
+    textarea {
+      border-radius: 5px;
+      border: 1px solid rgb(151,151,151);
+      width: 100%;
+      height: 80px;
+      padding: 10px 10px;
+      @media (min-width: $md) {
+        width: 65%;
+        height: 100px;
+      }
+      &::-webkit-input-placeholder {
+        font-family: $frutiger;
+      }
+      &::-moz-placeholder {
+        font-family: $frutiger;
+      }
+      &:-ms-input-placeholder {
+        font-family: $frutiger;
+      }
+    }
+    input[type="submit"] {
+      @extend .c-button;
+      max-width: 100%;
+      text-align: left;
+      outline: none;
+      border: none;
+      margin-top: 20px;
+      display: block;
+      width: 100%;
+      margin-bottom: 0;
+      @media (min-width: $md) {
+        position: relative;
+        top: 30px;
+        float: right;
+        margin-top: 0;
+        width: 200px;
+      }
+    }
+    .wpcf7-recaptcha {
+      @media (min-width: $xs) {
+        width: 50%;
+        float: left;
+      }
+    }
+    .wpcf7-response-output {
+      border-radius: 5px;
+      margin-top: 10px;
+      right: 20px;
+      @media (min-width: $mobile) {
+        margin-top: 20px;
+      }
+      @media (min-width: $xs) {
+        margin-top: 40px;
+      }
+      @media (min-width: $lg) {
+        margin-top: 60px;
+      }
+    }
+    // all OK
+    .wpcf7-mail-sent-ok {
+      border: 3px solid $sh-blue;
+      display: inline-block !important;
+    }
+    // captcha fail, validation errors, submit failure
+    .wpcf7-spam-blocked, .wpcf7-validation-errors, .wpcf7-mail-sent-ng {
+      display: inline-block !important;
+      border: 3px solid $sh-purple;
+    }
+  }
+}
+
+/*
+|---------------------------------------------------------------------
+| Sidebar (.c-sidebar)
+|---------------------------------------------------------------------
+| It's a sidebar
+|
+ */
+.c-sidebar {
+  margin-bottom: 15px;
+  &:first-child {
+    @media (min-width: $xs) {
+      margin-top: 15px;
+    }
+  }
+  @media (min-width: $xs) {
+    margin-bottom: 25px;
+  }
+}
+.c-sidebar__heading {
+  padding: 15px 20px;
+  background-color: $sh-blue;
+  color: $white;
+  margin: 0;
+  border-radius: 5px;
+  line-height: 24px;
+}
+.c-sidebar__list {
+  @include nav-ul;
+  padding: 15px 20px;
+  background-color: $sh-lightgrey;
+  border-radius: 5px;
+}
+.c-sidebar__item {
+  margin-bottom: 6px;
+  color: $sh-darkgrey;
+  font-family: $frutiger;
+  &:hover {
+    color: $sh-purple;
+  }
+}
+.c-sidebar__item--more {
+  &:last-child {
+    margin-bottom: 0;
+    margin-top: 15px;
+    line-height: 14px;
+    &:hover {
+      color: inherit;
+    }
+  }
+}
+
+/*
+|---------------------------------------------------------------------
+| Flex row (.flex-row)
+|---------------------------------------------------------------------
+| Wrapper with display: flex;
+|
+ */
+.flex-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/*
+|---------------------------------------------------------------------
+| Question (.c-question)
+|---------------------------------------------------------------------
+| Box with text wrapped in link
+|
+ */
+.c-question {
+  background: $sh-purple url('#{$img_path}/img-icon-chevron-right-white.png') no-repeat right 15px bottom 15px;
+  display: block;
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  width: 100%;
+  &:last-child {
+    margin-bottom: 0;
+  }
+  &:hover {
+    color: $white;
+    text-decoration: none;
+  }
+  @media (min-width: $xs) {
+    width: 180px;
+    margin-right: 20px;
+    margin-bottom: 0;
+    min-height: 120px;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+.c-question__text {
+  color: $white;
+  font-family: $frutiger;
+  font-size: 16px;
+  padding-bottom: 20px;
+}
+
+/*
+|---------------------------------------------------------------------
+| Search Modal (.modal etc - modifying Boostrap here)
+|---------------------------------------------------------------------
+ */
+.modal-header--search {
+  background: $sh-blue;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  h4 {
+    color: $white;
+
+  }
+}
+.modal-body--search {
+  padding: 10px 0 30px;
+  form {
+    input[type="search"] {
+      outline: none;
+      box-shadow: none;
+      border: none;
+      border-bottom: 3px solid;
+      border-color: $sh-blue;
+      width: 300px;
+      max-width: 100%;
+      margin-bottom: 45px;
+      display: block;
+      padding: 10px 10px 10px 0;
+    }
+    input[type="submit"] {
+      border: none;
+      margin-top: 10px;
+      text-align: left;
+      width: 150px;
+      height: 40px;
+    }
+  }
+}
+
+/*
+|---------------------------------------------------------------------
+| Search Results (.search-result)
+|---------------------------------------------------------------------
+| Search results, a couple of minor search related bits
+|
+ */
+.search-count {
+  position: relative;
+  bottom: 3px;
+  @media (min-width: $xs) {
+    bottom: 0;
+    margin-top: 15px;
+  }
+}
+.search-result {
+  padding: 8px 0;
+  @media (min-width: $xs) {
+    padding: 12px 0;
+  }
+}
+.search-result__heading {
+  color: $sh-purple;
+  margin-bottom: 2px;
+  @media (min-width: $xs) {
+    margin-bottom: 5px;
+  }
+}
+.search-result__link {
+  overflow: hidden;
+  display: block;
+  @include link-states() {
+    text-decoration: none;
+  }
+}
+.search-result__permalink {
+  color: $sh-blue;
+  font-family: $frutiger;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+  word-wrap: break-word;
+  @media (min-width: $xs) {
+    font-size: 16px;
+  }
+}
+.badge--purple {
+  background-color: $sh-purple;
+}
+
+/*
+|---------------------------------------------------------------------
+| Pagination Search (.pagination--search)
+|---------------------------------------------------------------------
+| Modifying bootstrap pagination
+|
+ */
+.pagination--search {
+ li {
+   display: inline-block;
+   a {
+     color: $sh-text;
+     border-radius: 5px;
+     background: none;
+     border: 1px solid transparent;
+     width: 55px;
+     height: 55px;
+     padding: 15px 10px 10px;
+     margin: 0;
+     font-size: 16px;
+     text-align: center;
+     @include link-states() {
+       text-decoration: none;
+     }
+     &:hover {
+       background: none;
+       border-color: $sh-purple;
+     }
+   }
+   &.current-page.disabled {
+     a {
+       color: $white;
+       background: $sh-purple;
+     }
+   }
+ }
+}
+
+/*
+|---------------------------------------------------------------------
+| Clinics list
+|---------------------------------------------------------------------
+|
+|
+ */
+#clinic-filter {
+  width: 300px;
+  max-width: 100%;
+  height: 45px;
+  padding-left: 10px;
+  border-radius: 5px;
+  box-shadow: none;
+  border: 1px solid $sh-darkgrey;
+  &:focus {
+    outline-color: $sh-blue;
+  }
+  &::-webkit-input-placeholder {
+    font-family: $frutiger;
+  }
+  &::-moz-placeholder {
+    font-family: $frutiger;
+  }
+  &:-ms-input-placeholder {
+    font-family: $frutiger;
+  }
+  @media (min-width: $xs) {
+    width: 400px;
+  }
+}
+
+.clinics-list {
+  @include nav-ul;
+  li {
+    @extend .c-content;
+    .clinic__telephone__number a {
+      text-decoration: none;
+    }
+  }
+}
+.clinic__address {
+  font-family: $frutiger;
+  font-weight: bold;
+  color: $sh-blue
+}
+.clinic__telephone {
+  font-family: $frutiger;
+}
+.clinic__telephone__number {
+  color: $sh-purple;
+  a {
+    text-decoration: none;
+  }
+  i {
+    color: $sh-purple;
+    position: relative;
+    top: 2px;
+    margin-left: 4px;
+  }
+}
+
+/*
+|---------------------------------------------------------------------
+| Cookie Consent
+|---------------------------------------------------------------------
+| See https://en-gb.wordpress.org/plugins/uk-cookie-consent/
+|
+ */
+#catapultCookie {
+  @extend .c-button;
+  width: 100%;
+  background-color: #990066;
+}
+#catapult-cookie-bar {
+  background-color: #0066cc !important;
+}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIl9jb21wb25lbnRzX21hc3Rlci5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBOzs7Ozs7R0FNRztBQUNIO0VBQ0UsMkJBQTJCO0VBQzNCLHFCQUFjO0VBQWQsY0FBYztFQUNkLHVCQUFvQjtNQUFwQixvQkFBb0I7RUFDcEIsYUFBYTtDQUNkO0FBQ0Q7RUFDRSxlQUFlO0VBQ2YscUJBQXFCO0VBQ3JCLHNFQUFzRTtFQUN0RSx5QkFBeUI7RUFDekIsYUFBYTtFQUNiLGFBQWE7RUFDYjtJQUNFLGFBQWE7SUFDYixxRUFBcUU7R0FDdEU7Q0FDRiIsImZpbGUiOiJfY29tcG9uZW50c19tYXN0ZXIuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi8qXG58LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tXG58IEhlYWRlciAoLmMtaGVhZGVyKVxufC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLVxufCBNYWluIFNpdGUgSGVhZGVyXG58XG4gKi9cbi5jLWhlYWRlciB7XG4gIGJhY2tncm91bmQtY29sb3I6ICRzaC1ibHVlO1xuICBkaXNwbGF5OiBmbGV4O1xuICBhbGlnbi1pdGVtczogY2VudGVyO1xuICBoZWlnaHQ6IDUwcHg7XG59XG4uYy1oZWFkZXItbG9nbyB7XG4gIGRpc3BsYXk6IGJsb2NrO1xuICB0ZXh0LWluZGVudDogLTk5OTlweDtcbiAgYmFja2dyb3VuZDogdXJsKCcjeyRpbWdfcGF0aH0vd3NodF9sb2dvLnBuZycpIG5vLXJlcGVhdCBjZW50ZXIgY2VudGVyO1xuICBiYWNrZ3JvdW5kLXNpemU6IGNvbnRhaW47XG4gIHdpZHRoOiAyNTlweDtcbiAgaGVpZ2h0OiA1MHB4O1xuICBAbWVkaWEgKG1pbi13aWR0aDogJG1kKSB7XG4gICAgZmxvYXQ6IHJpZ2h0O1xuICAgIGJhY2tncm91bmQ6IHVybCgnI3skaW1nX3BhdGh9L3dzaHRfbG9nby5wbmcnKSBuby1yZXBlYXQgcmlnaHQgY2VudGVyO1xuICB9XG59Il19 */
