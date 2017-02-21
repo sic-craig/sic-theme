@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AAKA,qeAAqe;ACC7d,qEAA6D;AALrE,UAGC;EAFC,WAAW,EAAE,aAAa;EAC1B,GAAG,EAAE,6CACP;AAIA,IAAK;EACH,WAAW,EAAE,oBAAoB;;AAEnC,UAAW;EACT,WAAW,EAAE,yBAAyB;;AAExC,EAAG;EACD,SAAS,EAAE,IAAI;EACf,yBAAwB;IAF1B,EAAG;MAGC,SAAS,EAAE,IAAI;;AAGnB,EAAG;EACD,SAAS,EAAE,IAAI;EACf,yBAAwB;IAF1B,EAAG;MAGC,SAAS,EAAE,IAAI;;AAGnB,EAAG;EACD,SAAS,EAAE,IAAI;EACf,yBAAwB;IAF1B,EAAG;MAGC,SAAS,EAAE,IAAI;;AAGnB,UAAW;EACT,WAAW,EAAE,oBAAoB;EACjC,SAAS,EAAE,IAAI;EACf,WAAW,EAAE,IAAI;;AClBnB,qyBAAqyB;AChBryB,iKAAiK;ACEjK,iTAAiT",
-"sources": ["sass/variables/_colours.scss","sass/variables/_typography.scss","sass/variables/_variables_master.scss","sass/mixins/_mixins_master.scss","sass/style.scss"],
-"names": [],
-"file": "style.css"
-}

@@ -1,11 +1,9 @@
 {
-  "name": "sic-sexual-health",
+  "name": "sic-custom-theme",
   "version": "1.0.0",
-  "description": "Sexual Health Website",
+  "description": "SIC Custom Theme",
   "dependencies": {
-    "@balidev/fast-live-filter": "^1.0.3",
-    "bootstrap-select": "^1.12.2",
-    "jquery.marquee": "^1.3.94"
+
   },
   "devDependencies": {
     "es6-promise": "^4.0.5",
