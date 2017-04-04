@@ -65,7 +65,6 @@ function setAcfEditorPreferences($toolbars)
         'formatselect',
         'code'
     ];
-
     return $toolbars;
 }
 add_filter('acf/fields/wysiwyg/toolbars' , 'setAcfEditorPreferences');
