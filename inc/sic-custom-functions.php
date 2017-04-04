@@ -95,3 +95,23 @@ function prefixUrl(string $url) : string
 {
     return ( (substr($url, 0, 8) == 'https://') || (substr($url, 0, 7) == 'http://') ) ? $url : 'http://' . $url;
 }
+
+
+/**
+ * Returns path to image folder
+ * with optional parameter to specify
+ * specific image type folder
+ *
+ * @param string $dir
+ * @return string
+ */
+function getImagePath(string $dir = '') : string
+{
+    if ($dir == 'svg') {
+        return get_template_directory_uri() . '/assets/img/svg';
+    } elseif ($dir == 'icons') {
+        return get_template_directory_uri() . '/assets/img/icons';
+    } else {
+        return get_template_directory_uri() . '/assets/img';
+    }
+}
