@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "SIC Custom Theme",
   "dependencies": {
-
+    "bootstrap": "^4.0.0-alpha.6",
+    "jquery": "^3.1.1",
+    "tether": "^1.4.0"
   },
   "devDependencies": {
     "es6-promise": "^4.0.5",
