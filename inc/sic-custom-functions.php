@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Trim a string to a given length
  * If trimmed, returns (length) characters - 3 with '...' appended
@@ -31,11 +32,43 @@ function setEditorPreferences($editor)
     $editor['wpautop'] = false;
     $editor['paste_remove_styles'] = true;
     $editor['paste_remove_spans'] = true;
-    $editor['toolbar1'] = 'bold,italic,bullist,numlist,blockquote,link,unlink,spellchecker, formatselect';
+    $editor['toolbar1'] = 'bold,italic,alignleft,aligncenter,alignright,bullist,numlist,blockquote,link,unlink,spellchecker,formatselect,code';
     $editor['paste_as_text'] = true;
     return $editor;
 }
 add_action('tiny_mce_before_init', 'setEditorPreferences');
+
+/**
+ * Add Custom Toolbar (should match setEditorPreferences() above
+ * and remove built in 'Basic' and 'Full' toolbars, for ACF use
+ *
+ * @param $toolbars
+ * @return mixed
+ */
+function setAcfEditorPreferences($toolbars)
+{
+    unset($toolbars['Basic']);
+    unset($toolbars['Full']);
+    $toolbars['Custom'] = [];
+    $toolbars['Custom'][1] = [
+        'bold',
+        'italic',
+        'alignleft',
+        'aligncenter',
+        'alignright',
+        'bullist',
+        'numlist',
+        'blockquote',
+        'link',
+        'unlink',
+        'spellchecker',
+        'formatselect',
+        'code'
+    ];
+
+    return $toolbars;
+}
+add_filter('acf/fields/wysiwyg/toolbars' , 'setAcfEditorPreferences');
 
 /**
  * Clear out commonly used bad values used in

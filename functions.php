@@ -64,6 +64,18 @@ function includeCss() {
 }
 add_action('wp_enqueue_scripts', 'includeCss');
 
+
+/*
+|---------------------------------------------------------------------
+| Add admin stylesheet
+|---------------------------------------------------------------------
+ */
+function wpa_admin_stylesheet() {
+    echo '<link rel="stylesheet" type="text/css" href="' . get_template_directory_uri() . '/assets/css/sic_admin.css">';
+}
+add_action('admin_head','wpa_admin_stylesheet');
+
+
 /*
 |---------------------------------------------------------------------
 | Import Custom Function Files

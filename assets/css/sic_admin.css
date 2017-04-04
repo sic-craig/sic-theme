@@ -1,0 +1,99 @@
+/*  FONTS
+-------------------------------------------------- */
+
+@import 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700';
+
+*,
+#wpadminbar * {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+/*  LINKS & BUTTONS
+-------------------------------------------------- */
+
+a {
+    color: #0077C3;
+}
+
+.wrap .add-new-h2:hover,
+.wrap .page-title-action:hover {
+    border-color: #0077C3;
+    background: #0077C3;
+    color: #ffffff;
+}
+
+.wp-core-ui .button,
+.wp-core-ui .button-secondary {
+    -webkit-box-shadow: none;
+            box-shadow: none;
+}
+
+/*  UPDATE BUBBLES
+-------------------------------------------------- */
+
+#adminmenu .awaiting-mod,
+#adminmenu .update-plugins {
+    background: #cc0000;
+}
+
+/*  MENU COLOURS
+-------------------------------------------------- */
+
+#adminmenu,
+#adminmenuback,
+#adminmenuwrap,
+#wpadminbar {
+    background: #212C36;
+}
+
+#adminmenu li.menu-top:hover,
+#adminmenu li.opensub > a.menu-top,
+#adminmenu li > a.menu-top:focus {
+    background: #394959;
+}
+
+#adminmenu .wp-has-current-submenu .wp-submenu,
+#adminmenu .wp-has-current-submenu .wp-submenu.sub-open,
+#adminmenu .wp-has-current-submenu.opensub .wp-submenu,
+#adminmenu a.wp-has-current-submenu:focus+.wp-submenu,
+.no-js li.wp-has-current-submenu:hover .wp-submenu {
+    background: #000000;
+}
+
+#adminmenu .wp-has-current-submenu .wp-submenu .wp-submenu-head,
+#adminmenu .wp-menu-arrow,
+#adminmenu .wp-menu-arrow div,
+#adminmenu li.current a.menu-top,
+#adminmenu li.wp-has-current-submenu a.wp-has-current-submenu,
+.folded #adminmenu li.current.menu-top,
+.folded #adminmenu li.wp-has-current-submenu {
+    background: #53687D;
+}
+
+#adminmenu .wp-submenu a:focus,
+#adminmenu .wp-submenu a:hover,
+#adminmenu a:hover,
+#adminmenu li.menu-top>a:focus,
+#adminmenu li.menu-top:hover,
+#adminmenu li.opensub > a.menu-top,
+#adminmenu li > a.menu-top:focus {
+    color: #ffffff;
+}
+
+#adminmenu .wp-submenu-head,
+#adminmenu a.menu-top {
+    font-size: 13px;
+    font-weight: 300;
+}
+
+#wpadminbar #wp-admin-bar-wp-logo > .ab-item .ab-icon:before {
+    content: '';
+}
+
+#wpadminbar #wp-admin-bar-wp-logo > .ab-item {
+    width: 146px;
+    background: url(../img/img-logo-learnlight-wp-dashboard.png) no-repeat 15px center;
+    background-size: 60px 20px;
+}
