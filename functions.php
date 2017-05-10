@@ -78,6 +78,42 @@ function wpa_admin_stylesheet() {
 }
 add_action('admin_head','wpa_admin_stylesheet');
 
+/*
+|---------------------------------------------------------------------
+| Disable WordPress backend theme/plugin editor
+|---------------------------------------------------------------------
+ */
+define( 'DISALLOW_FILE_EDIT', true );
+
+/*
+|---------------------------------------------------------------------
+| Allow localhost FTP
+|---------------------------------------------------------------------
+| Enables local install of plugins to be done through
+| admin area
+|
+ */
+define('FS_METHOD', 'direct');
+
+/*
+|---------------------------------------------------------------------
+| Replace 'Howdy' greeting!
+|---------------------------------------------------------------------
+ */
+function admin_bar_replace_howdy($wp_admin_bar)
+{
+
+    $account = $wp_admin_bar->get_node('my-account');
+    $replace = str_replace('Howdy,', 'Signed in as ', $account->title);
+    $wp_admin_bar->add_node(
+        array(
+            'id'            => 'my-account',
+            'title'         => $replace
+        )
+    );
+
+}
+add_filter('admin_bar_menu', 'admin_bar_replace_howdy', 25);
 
 /*
 |---------------------------------------------------------------------

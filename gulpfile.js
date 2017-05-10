@@ -9,7 +9,7 @@ var tinypng       = require('gulp-tinypng-compress');
 var rename        = require("gulp-rename");
 var uglify        = require('gulp-uglify');
 var pump          = require('pump');
-var browserify    = require('gulp-browserify')
+var browserify    = require('gulp-browserify');
 
 
 var onError = function(err) {
