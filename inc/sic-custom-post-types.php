@@ -1,10 +1,10 @@
 <?php
 /*
 |---------------------------------------------------------------------
-| Clinic
+| Product (example)
 |---------------------------------------------------------------------
  */
-function register_clinic_post_type() {
+function register_product_post_type() {
 
     $args = array(
         'supports' => array('title', 'editor', 'thumbnail', 'revisions', 'page-attributes', 'post-formats'),
@@ -12,34 +12,34 @@ function register_clinic_post_type() {
         'public'    => true,
         'has_archive' => true,
         'capability_type' => 'page',
-        'rewrite'   => array('slug' => 'clinics'),
+        'rewrite'   => array('slug' => 'products'),
         'taxonomies' => array('category'),
-        'menu_icon'  => 'dashicons-building'
+        'menu_icon'  => 'dashicons-cart'
     );
 
     $labels = array(
-        'name'                  => 'Clinics',
-        'singular_name'         => 'Clinic',
-        'add_new'               => 'Add Clinics',
-        'add_new_item'          => 'Add New Clinic',
-        'edit'                  => 'Edit Clinics',
-        'edit_item'             => 'Edit Clinic',
-        'new_item'              => 'New Clinic',
-        'view'                  => 'View Clinics',
-        'view_item'             => 'View Clinic',
-        'search_items'          => 'Search Clinics',
-        'not_found'             => 'No Clinics found',
-        'not_found_in_trash'    => 'No Clinics found in trash',
-        'parent'                => __( 'Parent Clinic' ),
+        'name'                  => 'Products',
+        'singular_name'         => 'Product',
+        'add_new'               => 'Add Products',
+        'add_new_item'          => 'Add New Product',
+        'edit'                  => 'Edit Products',
+        'edit_item'             => 'Edit Product',
+        'new_item'              => 'New Product',
+        'view'                  => 'View Products',
+        'view_item'             => 'View Product',
+        'search_items'          => 'Search Products',
+        'not_found'             => 'No Products found',
+        'not_found_in_trash'    => 'No Products found in trash',
+        'parent'                => __( 'Parent Product' ),
         'parent_item_colon'     => '',
     );
 
     $args['labels'] = $labels;
 
-    register_post_type('clinic', $args);
+    register_post_type('product', $args);
 
 }
-add_action('init', 'register_clinic_post_type');
+add_action('init', 'register_product_post_type');
 
 /*
 |---------------------------------------------------------------------

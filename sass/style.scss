@@ -1,24 +1,18 @@
 /*
-  Theme Name: SIC Sexual Health
-  Author: Craig Ivemy
+  Theme Name: SIC Custom Theme
+  Author: Strategic Internet Consulting
   Author URI: https://www.strategic-ic.co.uk/
-  Description: Custom theme for WSHT Sexual Health
+  Description: Custom boilerplate theme
   Version: 1.0.0
-  License: Only to be used by Western Sussex Hospitals Trust
-  Text Domain: sic-sexual-health
+  License: Only to be used by Strategic Internet Consulting or with their permission
+  Text Domain: sic-theme
 */
 
-/* ----- 1.0 Variables ----- */
-@import "variables/variables_master";
+// ----- 1.0 Common -----
+@import "common/common_master";
 
-/* ----- 2.0 Mixins ----- */
-@import "mixins/mixins_master";
-
-/* ----- 3.0 Helpers ----- */
-@import "helpers";
-
-/* ----- 4.0 Components ----- */
+// ----- 2.0 Components -----
 @import "components/components_master";
 
-
-/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInN0eWxlLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEscUNBQUE7QUFDQSwrQkFBZ0I7QUFDaEI7RUFBQyxxQkFBQTtFQUVDLGNBQWM7Q0FDZiIsImZpbGUiOiJzdHlsZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLnRlc3Qge1xuICBkaXNwbGF5OiBmbGV4O1xufSJdfQ== */
+// ----- 3.0 Layouts -----
+@import "layouts/layouts_master";

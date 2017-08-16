@@ -1,3 +1,5 @@
+/* ----- Mixins ----- */
+
 @mixin link-states() {
   &:visited {@content}
   &:hover {@content}
