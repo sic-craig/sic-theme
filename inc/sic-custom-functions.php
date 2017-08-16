@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Trim a string to a given length
  * If trimmed, returns (length) characters - 3 with '...' appended
@@ -140,10 +139,10 @@ function prefixUrl(string $url) : string
 function getImagePath(string $dir = '') : string
 {
     if ($dir == 'svg') {
-        return get_template_directory_uri() . '/assets/img/svg';
+        return get_template_directory_uri() . '/assets/dist/img/svg';
     } elseif ($dir == 'icons') {
-        return get_template_directory_uri() . '/assets/img/icons';
+        return get_template_directory_uri() . '/assets/dist/img/icons';
     } else {
-        return get_template_directory_uri() . '/assets/img';
+        return get_template_directory_uri() . '/assets/dist/img';
     }
 }
