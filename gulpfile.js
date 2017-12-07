@@ -1,6 +1,7 @@
 require('es6-promise').polyfill();
 
 var gulp          = require('gulp');
+var sourcemaps    = require('gulp-sourcemaps');
 var sass          = require('gulp-sass');
 var autoprefixer  = require('gulp-autoprefixer');
 var plumber       = require('gulp-plumber');
@@ -20,11 +21,13 @@ var onError = function(err) {
 
 gulp.task('sass', function() {
     return gulp.src('./sass/style.scss')
+        .pipe(sourcemaps.init())
         .pipe(plumber({ errorHandler: onError }))
         .pipe(sass({outputStyle: 'compressed'}))
         .pipe(autoprefixer({
             browsers: ['last 3 versions']
         }))
+        .pipe(sourcemaps.write())
         .pipe(rename({ suffix: '.min' }))
         .pipe(gulp.dest('./assets/dist/css'))
 });
