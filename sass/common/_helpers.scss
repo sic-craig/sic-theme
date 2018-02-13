@@ -1,21 +1,23 @@
 /* ----- Helpers ----- */
-
 .hang-right {
-  @media (min-width: $xs) {
-    float: right;
-  }
+    @media (min-width: $xs) {
+        float: right;
+    }
 }
+
 .hang-right__text {
-  @media (min-width: $xs) {
-    text-align: right;
-  }
+    @media (min-width: $xs) {
+        text-align: right;
+    }
 }
+
 .hidden-mob {
-  @media (max-width: $mobile) {
-    display: none;
-  }
+    @media (max-width: $mobile) {
+        display: none;
+    }
 }
-a[href^="tel"]{
-  color:inherit;
-  text-decoration:none;
+
+a[href^="tel"] {
+    color: inherit;
+    text-decoration: none;
 }

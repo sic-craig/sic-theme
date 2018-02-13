@@ -1,23 +1,85 @@
 /* ----- Mixins ----- */
-
-@mixin link-states() {
-  &:visited {@content}
-  &:hover {@content}
-  &:active {@content}
-  &:focus {@content}
-}
-@mixin nav-ul {
-  list-style-type: none;
-  padding-left: 0;
-  li {
-    a {
-      color: inherit;
-      @include link-states() {
-        color: inherit;
-        text-decoration: none;
-        font-family: inherit;
-      }
+@mixin responsive($breakpoint) {
+    @if $breakpoint==xs {
+        @media (min-width: 0) {
+            @content;
+        }
     }
-  }
+    @if $breakpoint==sm {
+        @media (min-width: 576px) {
+            @content;
+        }
+    }
+    @if $breakpoint==md {
+        @media (min-width: 768px) {
+            @content;
+        }
+    }
+    @if $breakpoint==lg {
+        @media (min-width: 992px) {
+            @content;
+        }
+    }
+    @if $breakpoint==xl {
+        @media (min-width: 1200px) {
+            @content;
+        }
+    }
 }
+
+@mixin responsive-down($breakpoint) {
+    @if $breakpoint==xs {
+        @media (max-width: 0) {
+            @content;
+        }
+    }
+    @if $breakpoint==sm {
+        @media (max-width: 576px) {
+            @content;
+        }
+    }
+    @if $breakpoint==md {
+        @media (max-width: 768px) {
+            @content;
+        }
+    }
+    @if $breakpoint==lg {
+        @media (max-width: 992px) {
+            @content;
+        }
+    }
+    @if $breakpoint==xl {
+        @media (max-width: 1200px) {
+            @content;
+        }
+    }
+}
+
+@mixin link-states($incHover:"") {
+    @if $incHover == true {
+        &:hover, &:visited, &:active, &:focus {
+            @content;
+        }
+    } @else {
+        &:visited, &:active, &:focus {
+            @content;
+        }
+    }
+}
+
+@mixin nav-ul {
+    list-style-type: none;
+    padding-left: 0;
+    li {
+        a {
+            color: inherit;
+            @include link-states() {
+                color: inherit;
+                text-decoration: none;
+                font-family: inherit;
+            }
+        }
+    }
+}
+
 /*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJfbWl4aW5zX21hc3Rlci5zY3NzIn0= */

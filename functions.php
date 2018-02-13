@@ -122,3 +122,4 @@ add_filter('admin_bar_menu', 'admin_bar_replace_howdy', 25);
  */
 require_once 'inc/sic-custom-post-types.php';
 require_once 'inc/sic-custom-functions.php';
+require_once 'inc/sic-site-functions.php';
