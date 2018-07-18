@@ -1,11 +1,11 @@
 {
   "name": "sic-custom-theme",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "SIC Custom Theme",
   "dependencies": {
-    "bootstrap": "^4.0.0-beta.3",
-    "jquery": "^3.2.1",
-    "tether": "^1.4.0"
+    "bootstrap": "^4.1.2",
+    "popper.js": "^1.14.3",
+    "jquery": "^3.3.1"
   },
   "devDependencies": {
     "es6-promise": "^4.0.5",
